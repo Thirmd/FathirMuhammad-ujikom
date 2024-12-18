@@ -5,10 +5,14 @@ using UnityEngine.UI;
 
 public class TimerManager : MonoBehaviour
 {
-    public float timeLeft = 60f;
+    public float timeLeft;
     private bool isGameEnd = false;
     public Text timerText;
+    public GameObject GameEndUI;
 
+    void Start(){
+        GameEndUI.SetActive(false);
+    }
     void Update()
     {
         if (!isGameEnd){
@@ -16,8 +20,10 @@ public class TimerManager : MonoBehaviour
             
             UpdateTImer();
 
-            if(timeLeft == 0f){
+            if(timeLeft <= 0f){
                 isGameEnd = true;
+                timerText.text = "TImer: 0";
+                GameEndUI.SetActive(true);
             }
         }
     }
