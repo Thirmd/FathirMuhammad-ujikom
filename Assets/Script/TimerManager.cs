@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TimerManager : MonoBehaviour
 {
@@ -29,5 +30,9 @@ public class TimerManager : MonoBehaviour
     }
     private void UpdateTImer(){
         timerText.text = "TImer: " + timeLeft;
+    }
+
+    public void GoMenu(){
+        SceneManager.LoadScene("Main Menu");
     }
 }
