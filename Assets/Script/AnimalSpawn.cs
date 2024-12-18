@@ -27,6 +27,8 @@ public class AnimalSpawn : MonoBehaviour
                 animalMovement.SetDirection(Vector2.left);
             }
 
+            Destroy(animal, 4f);
+
             yield return new WaitForSeconds(spawnInterval);
         }
     }
