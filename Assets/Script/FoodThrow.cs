@@ -29,8 +29,4 @@ public class FoodThrow : MonoBehaviour
 
         Destroy(Food, foodLifetime);
     }
-
-    void OnTriggerEnter(Collider other) {
-        
-    }
 }
