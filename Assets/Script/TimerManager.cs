@@ -7,16 +7,21 @@ public class TimerManager : MonoBehaviour
 {
     public float timeLeft = 60f;
     private bool isGameEnd = false;
+    public Text timerText;
+
     void Update()
     {
         if (!isGameEnd){
             timeLeft -= Time.deltaTime;
             
-            Debug.Log("timer: " + timeLeft);
+            UpdateTImer();
 
             if(timeLeft == 0f){
                 isGameEnd = true;
             }
         }
+    }
+    private void UpdateTImer(){
+        timerText.text = "TImer: " + timeLeft;
     }
 }

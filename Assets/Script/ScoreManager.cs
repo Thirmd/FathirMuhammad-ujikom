@@ -7,25 +7,31 @@ public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance;
     public int score = 0;
-    public int scoreMinus = 3;
+    public int scoreMinus = 0; 
+    public Text scoreText;
     private void Awake() {
         if (Instance == null){
-            Instance = this;}
+            Instance = this;
+        }
     }
     void Start()
     {
         score = 0;
+        UpdateScore();
+
     }
     public void AddScore(int poin){
         score += poin;
-        Debug.Log(score);
+        UpdateScore();
+    }
+    private void UpdateScore(){
+        scoreText.text = "Score: " + score;
     }
     public void DelScore(int poin){
         if (score < scoreMinus){
             score = 0;
-        Debug.Log(score);
+        UpdateScore();
         }
-        
     }
     void OnTriggerEnter(Collider other) {
         if(other.CompareTag("Animal")){
